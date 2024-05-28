@@ -1,0 +1,12 @@
+---
+- name: Update and upgrade packages
+  hosts: web_servers
+  become: true  # Escalate privileges to root
+  tasks:
+    - name: Update package cache
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Upgrade packages
+      ansible.builtin.apt:
+        upgrade: yes
