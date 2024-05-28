@@ -3,11 +3,11 @@
   hosts: web_servers
   become: true
   tasks:
-    - name: Stop httpd service
+    - name: Stop apache service
       ansible.builtin.service:
         name: apache2
         state: stopped
-    - name: Remove httpd package
+    - name: Remove apache package
       ansible.builtin.apt:  # or ansible.builtin.apt for Debian systems
         name: apache2
         state: absent
