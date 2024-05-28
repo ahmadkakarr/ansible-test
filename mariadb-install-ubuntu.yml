@@ -26,6 +26,11 @@
         state: started
         enabled: yes
 
+    - name: Install PyMySQL package
+      ansible.builtin.apt:
+        name: python-pymysql  # For Ubuntu/Debian
+        state: present
+
     - name: Secure MariaDB installation
       ansible.builtin.mysql_user:
         name: root
