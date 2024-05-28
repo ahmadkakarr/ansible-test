@@ -1,0 +1,19 @@
+---
+- name: Install PHP on Ubuntu
+  hosts: web_servers
+  become: true
+  tasks:
+    - name: Install PHP and required extensions
+      ansible.builtin.apt:
+        name:
+          - php
+          - libapache2-mod-php
+          - php-cli
+          - php-fpm
+          - php-mysql  # Add other PHP extensions as needed
+        state: present
+    - name: Enable PHP-FPM service
+      ansible.builtin.service:
+        name: php7.4-fpm  # Adjust the version if needed
+        state: started
+        enabled: yes
