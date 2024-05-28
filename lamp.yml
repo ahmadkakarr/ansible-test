@@ -3,6 +3,15 @@
   hosts: web_servers
   become: true
   tasks:
+  # apt update
+    - name: Update package cache
+      ansible.builtin.apt:
+        update_cache: yes
+  # apt upgrade
+    - name: Upgrade packages
+      ansible.builtin.apt:
+        upgrade: yes
+  # Install php
     - name: Install PHP and required extensions
       ansible.builtin.apt:
         name:
