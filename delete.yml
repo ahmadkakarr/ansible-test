@@ -1,0 +1,17 @@
+---
+- name: Remove Apache Web Server
+  hosts: web_servers
+  become: true
+  tasks:
+    - name: Stop httpd service
+      ansible.builtin.service:
+        name: apache2
+        state: stopped
+    - name: Remove httpd package
+      ansible.builtin.apt:  # or ansible.builtin.apt for Debian systems
+        name: apache2
+        state: absent
+    - name: Delete Apache configuration files (if any)
+      ansible.builtin.file:
+        path: /etc/apache2/
+        state: absent
