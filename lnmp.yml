@@ -66,6 +66,7 @@
       ansible.builtin.apt:
         name:
           - php8.3
+          - php8.3-common
           - php8.3-fpm
         state: present
   
