@@ -66,8 +66,10 @@
       ansible.builtin.apt:
         name:
           - php8.3
+          - php8.3-cli
           - php8.3-common
           - php8.3-fpm
+          - php8.3-mysql
         state: present
   
   # Enable php-fpm
