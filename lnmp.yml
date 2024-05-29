@@ -74,9 +74,6 @@
           - php8.3-curl
           - php8.3-xml
           - php8.3-mbstring
-          - php8.3-opcache
-          - php8.3-json
-          - php8.3-zip
         state: present
   
   # Enable php-fpm
