@@ -1,6 +1,6 @@
 ---
 - name: Install PHP on Ubuntu
-  hosts: web_servers
+  hosts: docker03
   become: true
   tasks:
   # apt Install Pre-Requsites
