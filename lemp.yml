@@ -84,6 +84,7 @@
           - php8.3-soap
           - php8.3-redis
           - php8.3-intl
+          - php8.3-sqlite3
         state: present
   
   # Enable php-fpm
