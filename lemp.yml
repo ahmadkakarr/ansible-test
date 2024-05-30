@@ -85,6 +85,8 @@
           - php8.3-redis
           - php8.3-intl
           - php8.3-sqlite3
+          - php8.3-bcmath
+          - php8.3-apcu
         state: present
   
   # Enable php-fpm
