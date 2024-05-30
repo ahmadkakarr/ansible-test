@@ -1,0 +1,29 @@
+---
+- name: Install PHP on Ubuntu
+  hosts: web_servers
+  become: true
+  tasks:
+  # apt Install Pre-Requsites
+    - name: Install Pre-requisite packages
+      ansible.builtin.apt:
+        name:
+          - gnupg2
+          - curl
+          - apt-transport-https
+        state: present
+  
+    - name: Download Syncthing release key
+      shell: |
+        curl -fsSL https://syncthing.net/release-key.txt | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/syncthing.gpg
+        echo "deb https://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing.list
+
+  # apt update
+    - name: Update package cache
+      ansible.builtin.apt:
+        update_cache: yes
+  
+  # apt Install Syncthing
+    - name: Install Syncthing
+      ansible.builtin.apt:
+        name:
+          - syncthing
